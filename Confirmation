@@ -1,9 +1,1 @@
--- Confirmation.lua
--- Check some condition
-local condition = true
-
--- Define the confirmation variable based on the condition
-local confirmation = condition
-
--- Return the value of the confirmation variable
-return confirmation
+return true
