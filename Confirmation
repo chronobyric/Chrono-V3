@@ -1,1 +1,8 @@
-return false
+-- Confirmation.lua
+local condition = true
+
+if condition then
+    return true
+else
+    return false
+end
