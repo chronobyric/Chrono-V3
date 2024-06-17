@@ -734,7 +734,7 @@ function Load()
 end
 
 Options('Enabled', 'ESP Enabled', true);
-Options('ShowTeam', 'Show Team', false);
+Options('ShowTeam', 'Show Team', true);
 Options('ShowTeamColor', 'Show Team Color', false);
 Options('ShowName', 'Show Names', true);
 Options('ShowDistance', 'Show Distance', false);
