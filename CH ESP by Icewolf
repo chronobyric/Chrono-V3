@@ -1,3 +1,5 @@
+local notifs = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua'))()
+notifs.alert('[COMPLETE Credits go to Icewolf, i just modified it to make it look better.]', Color3.new(1, 0, 0))
 assert(Drawing, 'exploit not supported')
 
 if not syn and not PROTOSMASHER_LOADED then print'Unnamed ESP only officially supports Synapse and Protosmasher! If you\'re an exploit developer and have added drawing API to your exploit, try setting syn as true then checking if that works, otherwise, DM me on discord @ cppbook.org#1968 or add an issue to the Unnamed ESP Github Repository and I\'ll see it through email!' end
@@ -732,13 +734,13 @@ function Load()
 end
 
 Options('Enabled', 'ESP Enabled', true);
-Options('ShowTeam', 'Show Team', true);
+Options('ShowTeam', 'Show Team', false);
 Options('ShowTeamColor', 'Show Team Color', false);
 Options('ShowName', 'Show Names', true);
-Options('ShowDistance', 'Show Distance', true);
+Options('ShowDistance', 'Show Distance', false);
 Options('ShowHealth', 'Show Health', true);
-Options('ShowBoxes', 'Show Boxes', true);
-Options('ShowTracers', 'Show Tracers', true);
+Options('ShowBoxes', 'Show Boxes', false);
+Options('ShowTracers', 'Show Tracers', false);
 Options('ShowDot', 'Show Head Dot', false);
 Options('VisCheck', 'Visibility Check', false);
 Options('Crosshair', 'Crosshair', false);
