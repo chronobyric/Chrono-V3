@@ -5438,11 +5438,9 @@ function UILibrary.Section:Dropdown(sett, callback)
             task.delay(
                 .4,
                 function()
-                    if menuOpen then
-                        return
+                    if not menuOpen then
+                        element.OptionHolder.Visible = false
                     end
-
-                    element.OptionHolder.Visible = false
                 end
             )
         end
