@@ -363,7 +363,7 @@ function Library:SetTheme(Theme)
 		Textbox = Theme.Textbox,
 		NavBar = Library:CalGradient(Theme.NavBar, 9),
 		NavBarTrue = Theme.NavBar,
-		Theme = Library:CalGradient(102, 111, 194),
+		Theme = Library:CalGradient(Theme.Theme, 47),
 		ThemeTrue = Theme.Theme,
 	}
 
