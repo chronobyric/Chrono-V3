@@ -1,3 +1,4 @@
+local cloneref = cloneref or function(o) return o end
 local MacLib = {}
 
 --// Services
@@ -22,7 +23,6 @@ local tabIndex = 0
 local function Tween(instance, tweeninfo, propertytable)
 	return cloneref(game:GetService("TweenService"):Create(instance, tweeninfo, propertytable))
 end
-local cloneref = cloneref or function(o) return o end
 PRotectionbro = cloneref(game:GetService("CoreGui"))
 Players = cloneref(game:GetService("Players"))
 
