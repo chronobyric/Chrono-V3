@@ -1582,7 +1582,7 @@ function MacLib:Window(Settings)
 					local TweenSettings = {
 						Info = TweenInfo.new(0.2, Enum.EasingStyle.Sine),
 
-						EnabledColors = {Toggle = Color3.fromRGB(87, 86, 86), ToggleHead = Color3.fromRGB(82, 88, 157)},
+						EnabledColors = {Toggle = Color3.fromRGB(55, 59, 104), ToggleHead = Color3.fromRGB(82, 88, 157)},
 						DisabledColors = {Toggle = Color3.fromRGB(61, 61, 61), ToggleHead = Color3.fromRGB(91, 91, 91)},
 
 						EnabledPosition = UDim2.new(1, 0, 0.5, 0),
@@ -1746,7 +1746,7 @@ function MacLib:Window(Settings)
 					local sliderBar = Instance.new("ImageLabel")
 					sliderBar.Name = "SliderBar"
 					sliderBar.Image = "rbxassetid://18772615246"
-					sliderBar.ImageColor3 = Color3.fromRGB(87, 86, 86)
+					sliderBar.ImageColor3 = Color3.fromRGB(55, 59, 104)
 					sliderBar.BackgroundColor3 = Color3.fromRGB(82, 88, 157)
 					sliderBar.BackgroundTransparency = 1
 					sliderBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
