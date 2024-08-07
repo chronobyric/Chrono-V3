@@ -21,7 +21,7 @@ local tabIndex = 0
 
 --// Functions
 local function Tween(instance, tweeninfo, propertytable)
-	return cloneref(game:GetService("TweenService"):Create(instance, tweeninfo, propertytable))
+	return cloneref(game:GetService("TweenService")):Create(instance, tweeninfo, propertytable)
 end
 PRotectionbro = cloneref(game:GetService("CoreGui"))
 Players = cloneref(game:GetService("Players"))
