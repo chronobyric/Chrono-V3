@@ -67,7 +67,7 @@ end
 	macLib.IgnoreGuiInset = true
 	macLib.ScreenInsets = Enum.ScreenInsets.None
 	macLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	macLib.Parent = (isStudio and LocalPlayer.PlayerGui) or PARENT
+	macLib.Parent = COREGUI
 	
 	local notifications = Instance.new("Frame")
 	notifications.Name = "Notifications"
