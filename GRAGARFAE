@@ -20,7 +20,7 @@ local tabIndex = 0
 
 --// Functions
 local function Tween(instance, tweeninfo, propertytable)
-	return game:GetService("TweenService"):Create(instance, tweeninfo, propertytable)
+	return cloneref(game:GetService("TweenService"):Create(instance, tweeninfo, propertytable))
 end
 local cloneref = cloneref or function(o) return o end
 PRotectionbro = cloneref(game:GetService("CoreGui"))
@@ -796,8 +796,8 @@ function MacLib:Window(Settings)
 	
 	local BlurTarget  = base
 
-	local RunService = game:GetService('RunService')
-	local HS = game:GetService('HttpService')
+	local RunService = cloneref(game:GetService('RunService'))
+	local HS = cloneref(game:GetService('HttpService'))
 	local camera = workspace.CurrentCamera
 	local MTREL = "Glass"
 	local binds = {}
@@ -809,7 +809,7 @@ function MacLib:Window(Settings)
 
 	for _,v in pairs(game:GetService("Lighting"):GetChildren()) do
 		if not v:IsA("DepthOfFieldEffect") and v:HasTag(".") then
-			DepthOfField = Instance.new('DepthOfFieldEffect', game:GetService('Lighting'))
+			DepthOfField = Instance.new('DepthOfFieldEffect', cloneref(game:GetService('Lighting')))
 			DepthOfField.FarIntensity = 0
 			DepthOfField.FocusDistance = 51.6
 			DepthOfField.InFocusRadius = 50
@@ -822,7 +822,7 @@ function MacLib:Window(Settings)
 	end
 
 	if not DepthOfField then
-		DepthOfField = Instance.new('DepthOfFieldEffect', game:GetService('Lighting'))
+		DepthOfField = Instance.new('DepthOfFieldEffect', cloneref(game:GetService('Lighting')))
 		DepthOfField.FarIntensity = 0
 		DepthOfField.FocusDistance = 51.6
 		DepthOfField.InFocusRadius = 50
@@ -1869,7 +1869,7 @@ function MacLib:Window(Settings)
 						end
 					end)
 
-					game:GetService("UserInputService").InputChanged:Connect(function(input)
+					cloneref(game:GetService("UserInputService")).InputChanged:Connect(function(input)
 						if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
 							SetValue(input)
 						end
