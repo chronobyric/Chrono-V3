@@ -807,7 +807,7 @@ function MacLib:Window(Settings)
 
 	local DepthOfField
 
-	for _,v in pairs(game:GetService("Lighting"):GetChildren()) do
+	for _,v in pairs(cloneref(game:GetService("Lighting")):GetChildren()) do
 		if not v:IsA("DepthOfFieldEffect") and v:HasTag(".") then
 			DepthOfField = Instance.new('DepthOfFieldEffect', cloneref(game:GetService('Lighting')))
 			DepthOfField.FarIntensity = 0
