@@ -1,4 +1,4 @@
-local cloneref = cloneref or function(o) return o end
+
 local MacLib = {}
 
 --// Services
@@ -24,40 +24,8 @@ local function Tween(instance, tweeninfo, propertytable)
 	return cloneref(game:GetService("TweenService")):Create(instance, tweeninfo, propertytable)
 end
 
-local cloneref = cloneref or function(o) return o end
-COREGUI = cloneref(game:GetService("CoreGui"))
-Players = cloneref(game:GetService("Players"))
-function randomString()
-	local length = math.random(10,20)
-	local array = {}
-	for i = 1, length do
-		array[i] = string.char(math.random(32, 126))
-	end
-	return table.concat(array)
-end
 
-PARENT = nil
-if get_hidden_gui or gethui then
-	local hiddenUI = get_hidden_gui or gethui
-	local Main = Instance.new("ScreenGui")
-	Main.Name = randomString()
-	Main.Parent = hiddenUI()
-	PARENT = Main
-elseif (not is_sirhurt_closure) and (syn and syn.protect_gui) then
-	local Main = Instance.new("ScreenGui")
-	Main.Name = randomString()
-	syn.protect_gui(Main)
-	Main.Parent = COREGUI
-	PARENT = Main
-elseif COREGUI:FindFirstChild('RobloxGui') then
-	PARENT = COREGUI.RobloxGui
-else
-	local Main = Instance.new("ScreenGui")
-	Main.Name = randomString()
-	Main.Parent = COREGUI
-	PARENT = Main
-end
-shade2 = {}
+
 
 --// Library Functions
 function MacLib:Window(Settings)
@@ -69,14 +37,21 @@ function MacLib:Window(Settings)
 	end
 
 	local macLib = Instance.new("ScreenGui")
-	macLib.Name = randomString()
+	macLib.Name = "macLib"
 	macLib.DisplayOrder = 100
 	macLib.IgnoreGuiInset = true
 	macLib.ScreenInsets = Enum.ScreenInsets.None
 	macLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-        macLib.Parent = PARENT
-        table.insert(shade2,macLib)
-
+if gethui then
+	macLib.Parent = gethui()
+elseif syn.protect_gui then 
+	syn.protect_gui(macLib)
+	macLib.Parent = CoreGui
+elseif CoreGui:FindFirstChild("RobloxGui") then
+	macLib.Parent = CoreGui:FindFirstChild("RobloxGui")
+else
+	macLib.Parent = CoreGui
+end
 
 
 
