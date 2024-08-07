@@ -57,6 +57,7 @@ else
 	Main.Parent = COREGUI
 	PARENT = Main
 end
+shade2 = {}
 
 --// Library Functions
 function MacLib:Window(Settings)
@@ -74,6 +75,7 @@ function MacLib:Window(Settings)
 	macLib.ScreenInsets = Enum.ScreenInsets.None
 	macLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
         macLib.Parent = PARENT
+        table.insert(shade2,macLib)
 
 
 
