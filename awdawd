@@ -38,8 +38,8 @@ function MacLib:Window(Settings)
 	macLib.IgnoreGuiInset = true
 	macLib.ScreenInsets = Enum.ScreenInsets.None
 	macLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-if syn then
-	syn.protect_gui(macLib)
+if protect_gui() then
+	protect_gui(macLib)
 	macLib.Parent = game.CoreGui
 else
 	macLib.Parent = gethui() or game.CoreGui
