@@ -1,4 +1,4 @@
--- esp.lua
+-- fixed esp.lua
 --// Variables
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -77,20 +77,22 @@ local function createEsp(player)
             Color = ESP_SETTINGS.NameColor,
             Outline = true,
             Center = true,
-            Size = 13
+            Size = 26,  -- Increase the size by 2x
+            Font = Drawing.Fonts.Arcade -- Set the font to "Arcade"
         }),
         healthOutline = create("Line", {
-            Thickness = 3,
+            Thickness = 6,  -- Increase thickness by 2x for a wider health bar
             Color = ESP_SETTINGS.HealthOutlineColor
         }),
         health = create("Line", {
-            Thickness = 1
+            Thickness = 2  -- Increase thickness by 2x for a wider health bar
         }),
         distance = create("Text", {
             Color = Color3.new(1, 1, 1),
-            Size = 12,
+            Size = 36,  -- Increase size by 3x for distance text
             Outline = true,
-            Center = true
+            Center = true,
+            Font = Drawing.Fonts.Arcade -- Set the font to "Arcade"
         }),
         tracer = create("Line", {
             Thickness = ESP_SETTINGS.TracerThickness,
