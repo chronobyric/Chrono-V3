@@ -84,7 +84,7 @@ local function createEsp(player)
             Color = ESP_SETTINGS.HealthOutlineColor
         }),
         health = create("Line", {
-            Thickness = 4  -- Increase thickness by 2x for a wider health bar
+            Thickness = 2  -- Increase thickness by 2x for a wider health bar
         }),
         distance = create("Text", {
             Color = Color3.new(1, 1, 1),
