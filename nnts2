@@ -80,7 +80,7 @@ local function createEsp(player)
             Font = Drawing.Fonts.Arcade -- Set the font to "Arcade"
         }),
         healthOutline = create("Line", {
-            Thickness = 6,  -- Increase thickness by 2x for a wider health bar
+            Thickness = 2,  -- Increase thickness by 2x for a wider health bar
             Color = ESP_SETTINGS.HealthOutlineColor
         }),
         health = create("Line", {
