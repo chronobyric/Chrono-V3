@@ -76,7 +76,7 @@ local function createEsp(player)
             Color = ESP_SETTINGS.NameColor,
             Outline = true,
             Center = true,
-            Size = 16,  -- Increase the size by 2x
+            Size = 8,  -- Increase the size by 2x
             Font = Drawing.Fonts.Arcade -- Set the font to "Arcade"
         }),
         healthOutline = create("Line", {
@@ -88,7 +88,7 @@ local function createEsp(player)
         }),
         distance = create("Text", {
             Color = Color3.new(1, 1, 1),
-            Size = 16,  -- Increase size by 3x for distance text
+            Size = 8,  -- Increase size by 3x for distance text
             Outline = true,
             Center = true,
             Font = Drawing.Fonts.Arcade -- Set the font to "Arcade"
