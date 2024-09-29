@@ -134,6 +134,9 @@ local function removeEsp(player)
 end
 
 local function updateEsp()
+if not camera or not camera.ViewportSize then
+        camera = workspace.CurrentCamera
+    end
     for player, esp in pairs(cache) do
         local character, team = player.Character, player.Team
         if character and (not ESP_SETTINGS.Teamcheck or (team and team ~= localPlayer.Team)) then
