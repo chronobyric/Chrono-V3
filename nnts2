@@ -200,26 +200,39 @@ local function updateEsp()
 end
 print("hey")
 
+local camera = workspace.CurrentCamera or workspace:WaitForChild("CurrentCamera")
+
 -- Player-related event handling
 for _, player in ipairs(Players:GetPlayers()) do
     if player ~= localPlayer then
-        createEsp(player)
+        pcall(function()
+            createEsp(player)
+        end)
     end
 end
-print("hey")
 
 Players.PlayerAdded:Connect(function(player)
     if player ~= localPlayer then
-        createEsp(player)
+        pcall(function()
+            createEsp(player)
+        end)
     end
 end)
-print("hey")
 
 Players.PlayerRemoving:Connect(function(player)
-    removeEsp(player)
+    pcall(function()
+        removeEsp(player)
+    end)
 end)
-print("hey")
 
-RunService.RenderStepped:Connect(updateEsp)
+RunService.RenderStepped:Connect(function()
+    if camera == nil or not camera:IsA("Camera") then
+        camera = workspace:FindFirstChildOfClass("Camera")
+    end
+    if camera then
+        pcall(updateEsp)
+    end
+end)
+
 
 return ESP_SETTINGS
