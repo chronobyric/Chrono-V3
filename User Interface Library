@@ -4898,12 +4898,12 @@ end)() end,
 [62] = function()local wax,script,require=ImportGlobals(62)local ImportGlobals return (function(...)return {
 text = Color3.fromHex("#e9e9ff"),
 text2 = Color3.fromHex("#d8d9ed"),
-background = Color3.fromHex("#040406"),
+background = Color3.fromHex("#161621"),
 primary = Color3.fromHex("#a3a4c2"),
-secondary = Color3.fromHex("#3d3d61"),
-accent = Color3.fromHex("#FFA411"),
+secondary = Color3.fromHex("#222230"),
+accent = Color3.fromHex("#7273ac"),
 
-selectedTab = Color3.fromHex("#FFA411"),
+selectedTab = Color3.fromHex("#7273ac"),
 toggled = Color3.fromRGB(255, 164, 17),
 
 red = Color3.fromRGB(255,105,97),
@@ -8322,7 +8322,7 @@ return function(gtaMenuProperty)
 end
 end)() end,
 [78] = function()local wax,script,require=ImportGlobals(78)local ImportGlobals return (function(...)return {
-defaultTab = Color3.fromHex("#FFA411"),
+defaultTab = Color3.fromHex("#7273ac"),
 background = Color3.fromRGB(40, 44, 50),
 secondaryBackground = Color3.fromRGB(49, 56, 66),
 tertiaryBackground = Color3.fromRGB(57, 63, 75),
