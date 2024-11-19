@@ -77,21 +77,21 @@ local function createEsp(player)
             Outline = true,
             Center = true,
             Size = 12,  -- Increase the size by 2x
-            Font = Drawing.Fonts.Arcade -- Set the font to "Arcade"
+            Font = Drawing.Fonts.Arcade
         }),
         healthOutline = create("Line", {
-            Thickness = 3,  -- Increase thickness by 2x for a wider health bar
+            Thickness = 3,
             Color = ESP_SETTINGS.HealthOutlineColor
         }),
         health = create("Line", {
-            Thickness = 2  -- Increase thickness by 2x for a wider health bar
+            Thickness = 2
         }),
         distance = create("Text", {
             Color = Color3.new(1, 1, 1),
-            Size = 8,  -- Increase size by 3x for distance text
+            Size = 12,  -- Increase size by 3x for distance text
             Outline = true,
             Center = true,
-            Font = Drawing.Fonts.Arcade -- Set the font to "Arcade"
+            Font = Drawing.Fonts.Arcade
         }),
         tracer = create("Line", {
             Thickness = ESP_SETTINGS.TracerThickness,
