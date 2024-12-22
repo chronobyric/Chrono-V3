@@ -76,7 +76,7 @@ local function createEsp(player)
             Color = ESP_SETTINGS.NameColor,
             Outline = true,
             Center = true,
-            Size = 15,
+            Size = 10,
             Font = Drawing.Fonts.Arcade
         }),
         healthOutline = create("Line", {
@@ -88,7 +88,7 @@ local function createEsp(player)
         }),
         distance = create("Text", {
             Color = Color3.new(1, 1, 1),
-            Size = 15,
+            Size = 10,
             Outline = true,
             Center = true,
             Font = Drawing.Fonts.Arcade
@@ -129,7 +129,7 @@ local function removeEsp(player)
     for _, drawing in pairs(esp) do
         if drawing and drawing.Remove then
         drawing:Remove()
-        end
+       end
     end
 
     cache[player] = nil
@@ -141,7 +141,7 @@ local function updateEsp()
         if character and (not ESP_SETTINGS.Teamcheck or (team and team ~= localPlayer.Team)) then
             local rootPart = character:FindFirstChild("HumanoidRootPart")
             local head = character:FindFirstChild("Head")
-            local humanoid = character:FindFirstChild("Dinosaur")
+            local humanoid = character:FindFirstChild("Humanoid")
             local isBehindWall = ESP_SETTINGS.WallCheck and isPlayerBehindWall(player)
             local shouldShow = not isBehindWall and ESP_SETTINGS.Enabled
             if rootPart and head and humanoid and shouldShow then
@@ -268,11 +268,11 @@ local function updateEsp()
                     if ESP_SETTINGS.ShowHealth and ESP_SETTINGS.Enabled then
                         esp.healthOutline.Visible = true
                         esp.health.Visible = true
-                        local healthPercentage = player.Character.Dinosaur.Health / player.Character.Dinosaur.MaxHealth
+                        local healthPercentage = player.Character.Humanoid.Health / player.Character.Humanoid.MaxHealth
                         esp.healthOutline.From = Vector2.new(boxPosition.X - 6, boxPosition.Y + boxSize.Y)
                         esp.healthOutline.To = Vector2.new(esp.healthOutline.From.X, esp.healthOutline.From.Y - boxSize.Y)
                         esp.health.From = Vector2.new((boxPosition.X - 5), boxPosition.Y + boxSize.Y)
-                        esp.health.To = Vector2.new(esp.health.From.X, esp.health.From.Y - (player.Character.Dinosaur.Health / player.Character.Dinosaur.MaxHealth) * boxSize.Y)
+                        esp.health.To = Vector2.new(esp.health.From.X, esp.health.From.Y - (player.Character.Humanoid.Health / player.Character.Humanoid.MaxHealth) * boxSize.Y)
                         esp.health.Color = ESP_SETTINGS.HealthLowColor:Lerp(ESP_SETTINGS.HealthHighColor, healthPercentage)
                     else
                         esp.healthOutline.Visible = false
