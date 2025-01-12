@@ -66,31 +66,29 @@ end
 local function updateesp()
     for player, esp in pairs(cache) do
         local character, team = player.Character, player.Team
-        local rootpart, head, humanoid = character and character:FindFirstChild("HumanoidRootPart"), character and character:FindFirstChild("Head"), character and character:FindFirstChild("Humanoid")
-        local isbehind = ESP_SETTINGS.WallCheck and isbehindwall(player)
-        if rootpart and head and humanoid and not isbehind and ESP_SETTINGS.Enabled and (not ESP_SETTINGS.Teamcheck or team ~= localplayer.Team) then
-            local position, onscreen = camera:WorldToViewportPoint(rootpart.Position)
-            if onscreen then
-                local hrp2d = camera:WorldToViewportPoint(rootpart.Position)
-                local charsizex, charsizey = ESP_SETTINGS.CharSize.X, ESP_SETTINGS.CharSize.Y
-                local boxsize = Vector2.new(math.floor(charsizex), math.floor(charsizey))
-                local boxpos = Vector2.new(math.floor(hrp2d.X - charsizex / 2), math.floor(hrp2d.Y - charsizey / 2))
+        if character and (not ESP_SETTINGS.Teamcheck or team ~= localplayer.Team) then
+            local rootpart = character:FindFirstChild("HumanoidRootPart")
+            local head = character:FindFirstChild("Head")
+            local humanoid = character:FindFirstChild("Humanoid")
+            if rootpart and head and humanoid then
+                local position, onscreen = camera:WorldToViewportPoint(rootpart.Position)
+                if onscreen and ESP_SETTINGS.Enabled then
+                    local boxpos = Vector2.new(position.X, position.Y)
+                    esp.name.Visible = ESP_SETTINGS.ShowName
+                    esp.name.Text = player.Name or "Unknown"
+                    esp.name.Position = Vector2.new(boxpos.X, boxpos.Y - 16)
 
-                esp.name.Visible = ESP_SETTINGS.ShowName
-                esp.name.Text = player.Name
-                esp.name.Position = Vector2.new(boxpos.X + boxsize.X / 2, boxpos.Y - 16)
+                    esp.box.Visible = ESP_SETTINGS.ShowBox
+                    esp.box.Position = boxpos
 
-                esp.box.Visible = ESP_SETTINGS.ShowBox
-                esp.box.Size = boxsize
-                esp.box.Position = boxpos
-
-                esp.tracer.Visible = ESP_SETTINGS.ShowTracer
-                esp.tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y)
-                esp.tracer.To = Vector2.new(hrp2d.X, hrp2d.Y)
-            end
-        else
-            for _, drawing in pairs(esp) do
-                if drawing.Remove then drawing:Remove() end
+                    esp.tracer.Visible = ESP_SETTINGS.ShowTracer
+                    esp.tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y)
+                    esp.tracer.To = boxpos
+                else
+                    for _, drawing in pairs(esp) do
+                        if drawing.Remove then drawing:Remove() end
+                    end
+                end
             end
         end
     end
